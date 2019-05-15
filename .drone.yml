@@ -11,8 +11,3 @@ steps:
     commands:
       - echo "Running the second step"
       - sleep 900
-services:
-  - name: memcached
-    image: memcached:1.5-alpine
-    ports:
-      - 11211
