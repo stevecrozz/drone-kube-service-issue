@@ -1,10 +1,16 @@
 kind: pipeline
 name: default
 steps:
-  - name: echo
+  - name: first
     image: alpine
     commands:
-      - echo "I should run, but I don't"
+      - echo "Ran the first step"
+  - name: second
+    depends_on: [ first ]
+    image: alpine
+    commands:
+      - echo "Running the second step"
+      - sleep 900
 services:
   - name: memcached
     image: memcached:1.5-alpine
